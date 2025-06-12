@@ -1,0 +1,19 @@
+---
+import BlogLayout from '../layouts/BlogLayout.astro';
+import fs from 'fs';
+import path from 'path';
+
+const postsDir = './src/content/blog/';
+const posts = fs.readdirSync(postsDir).map(file => ({
+  title: file.replace('.md', ''),
+  url: `/blog/${file.replace('.md', '')}`
+}));
+---
+<BlogLayout>
+  <h1 class="text-3xl font-bold mb-4">Bienvenido a Ñam</h1>
+  <ul>
+    {posts.map(post => (
+      <li><a class="underline" href={post.url}>{post.title}</a></li>
+    ))}
+  </ul>
+</BlogLayout>
