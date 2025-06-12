@@ -1,19 +1,25 @@
 ---
-import BlogLayout from '../layouts/BlogLayout.astro';
-import fs from 'fs';
-import path from 'path';
+import { getCollection } from 'astro:content';
 
-const postsDir = './src/content/blog/';
-const posts = fs.readdirSync(postsDir).map(file => ({
-  title: file.replace('.md', ''),
-  url: `/blog/${file.replace('.md', '')}`
-}));
+const posts = await getCollection('blog');
 ---
-<BlogLayout>
-  <h1 class="text-3xl font-bold mb-4">Bienvenido a Ñam</h1>
-  <ul>
-    {posts.map(post => (
-      <li><a class="underline" href={post.url}>{post.title}</a></li>
-    ))}
-  </ul>
-</BlogLayout>
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ñam Blog</title>
+  </head>
+  <body class="bg-white text-black p-8">
+    <main class="max-w-3xl mx-auto">
+      <img src="/logo.png" alt="Logo Ñam" class="mx-auto w-32 my-8" />
+      <h1 class="text-4xl font-bold mb-4 text-center">Bienvenido a Ñam</h1>
+      <ul class="space-y-4">
+        {posts.map((post) => (
+          <li>
+            <a href={`/blog/${post.slug}`} class="underline text-xl">{post.data.title}</a>
+          </li>
+        ))}
+      </ul>
+    </main>
+  </body>
+</html>
