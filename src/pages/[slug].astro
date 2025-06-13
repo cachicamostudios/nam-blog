@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import BlogPostLayout from '../layouts/BlogPostLayout.astro';
 import { getEntryBySlug, getCollection } from 'astro:content';
 
+// ✅ Esta función es obligatoria para rutas dinámicas como [slug]
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
   return posts.map(post => ({
