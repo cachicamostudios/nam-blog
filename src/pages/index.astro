@@ -1,10 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+const posts = await getCollection('blog');
 ---
 
 <Layout>
-  <section class="text-center mt-16">
-    <h1 class="text-4xl font-bold mb-4">Bienvenido a ñam.com</h1>
-    <p class="text-lg text-gray-600 dark:text-gray-300">Descubre los sabores que cuentan historias.</p>
-  </section>
+  <main class="max-w-3xl mx-auto px-6 py-10">
+    <h1 class="text-4xl font-bold mb-8">Bienvenido a Ñam</h1>
+    <ul class="space-y-6">
+      {posts.map(post => (
+        <li class="border-b pb-4">
+          <a class="text-2xl font-semibold text-blue-600 hover:underline" href={`/blog/${post.slug}`}>{post.data.title}</a>
+          <p class="text-sm text-gray-600 mt-1">{post.data.description}</p>
+        </li>
+      ))}
+    </ul>
+  </main>
 </Layout>
