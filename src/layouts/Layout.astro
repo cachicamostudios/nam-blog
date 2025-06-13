@@ -1,19 +1,30 @@
 ---
 ---
 
-<header class="flex justify-between items-start p-4">
-  <!-- Logo reducido sin sombra -->
-  <img src="/nam-logo.png" alt="ñam.com logo" class="h-32" />
+<header class="flex justify-between items-center p-4 border-b border-gray-200">
+  <!-- Logo a la izquierda -->
+  <a href="/" class="flex items-center space-x-2">
+    <img src="/nam-logo.png" alt="ñam.com logo" class="h-12 w-auto" />
+  </a>
 
-  <!-- Botón hamburguesa arriba a la derecha -->
-  <button class="md:hidden text-3xl ml-auto" onclick="toggleMenu()" aria-label="Abrir menú">
+  <!-- Botón hamburguesa visible en móvil -->
+  <button class="md:hidden text-2xl" onclick="toggleMenu()" aria-label="Abrir menú">
     ☰
   </button>
 
-  <!-- Menú móvil sin sombra -->
-  <nav id="mobileMenu" class="hidden absolute top-20 right-4 bg-white p-4 rounded z-50 border border-gray-200">
+  <!-- Menú principal oculto en móvil -->
+  <nav id="mainMenu" class="hidden md:flex space-x-6 text-sm">
+    <a href="/" class="text-gray-800 hover:underline">Inicio</a>
+    <a href="/blog" class="text-gray-800 hover:underline">Archivo</a>
+    <a href="/sobre" class="text-gray-800 hover:underline">Sobre</a>
+  </nav>
+
+  <!-- Menú móvil -->
+  <nav id="mobileMenu" class="hidden absolute top-16 right-4 bg-white p-4 rounded border border-gray-200 shadow-md z-50">
     <ul class="space-y-2">
-      <li><a href="/blog" class="text-black hover:underline">Ver posts antiguos</a></li>
+      <li><a href="/" class="block text-gray-800 hover:underline">Inicio</a></li>
+      <li><a href="/blog" class="block text-gray-800 hover:underline">Archivo</a></li>
+      <li><a href="/sobre" class="block text-gray-800 hover:underline">Sobre</a></li>
     </ul>
   </nav>
 
