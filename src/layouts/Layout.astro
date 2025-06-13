@@ -1,30 +1,30 @@
 ---
 ---
 
-<header class="flex justify-between items-center p-4 border-b border-gray-200">
+<header class="flex justify-between items-center p-6 border-b border-gray-200">
   <!-- Logo a la izquierda -->
-  <a href="/" class="flex items-center space-x-2">
-    <img src="/nam-logo.png" alt="ñam.com logo" class="h-12 w-auto" />
+  <a href="/">
+    <img src="/nam-logo.png" alt="ñam.com logo" class="h-16" />
   </a>
 
   <!-- Botón hamburguesa visible en móvil -->
-  <button class="md:hidden text-2xl" onclick="toggleMenu()" aria-label="Abrir menú">
+  <button class="md:hidden text-3xl" onclick="toggleMenu()" aria-label="Abrir menú">
     ☰
   </button>
 
-  <!-- Menú principal oculto en móvil -->
-  <nav id="mainMenu" class="hidden md:flex space-x-6 text-sm">
-    <a href="/" class="text-gray-800 hover:underline">Inicio</a>
-    <a href="/blog" class="text-gray-800 hover:underline">Archivo</a>
-    <a href="/sobre" class="text-gray-800 hover:underline">Sobre</a>
+  <!-- Menú para pantallas medianas y grandes -->
+  <nav class="hidden md:flex gap-6 text-lg">
+    <a href="/" class="hover:underline">Inicio</a>
+    <a href="/blog" class="hover:underline">Archivo</a>
+    <a href="/about" class="hover:underline">Sobre</a>
   </nav>
 
   <!-- Menú móvil -->
-  <nav id="mobileMenu" class="hidden absolute top-16 right-4 bg-white p-4 rounded border border-gray-200 shadow-md z-50">
-    <ul class="space-y-2">
-      <li><a href="/" class="block text-gray-800 hover:underline">Inicio</a></li>
-      <li><a href="/blog" class="block text-gray-800 hover:underline">Archivo</a></li>
-      <li><a href="/sobre" class="block text-gray-800 hover:underline">Sobre</a></li>
+  <nav id="mobileMenu" class="hidden absolute top-20 right-4 bg-white p-4 rounded shadow-lg border border-gray-200 z-50">
+    <ul class="space-y-3">
+      <li><a href="/" class="text-black hover:underline">Inicio</a></li>
+      <li><a href="/blog" class="text-black hover:underline">Archivo</a></li>
+      <li><a href="/about" class="text-black hover:underline">Sobre</a></li>
     </ul>
   </nav>
 
@@ -35,3 +35,7 @@
     }
   </script>
 </header>
+
+<main class="max-w-3xl mx-auto p-6">
+  <slot />
+</main>
