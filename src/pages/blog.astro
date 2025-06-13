@@ -1,0 +1,48 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const posts = await Astro.glob('../content/blog/*.md');
+---
+
+<Layout title="Ñam - Blog">
+  <div class="absolute top-4 left-4 flex gap-2">
+    <button onclick="setLanguage('es')" class="text-sm border px-2 py-1 rounded bg-neutral-200 dark:bg-neutral-700">ES</button>
+    <button onclick="setLanguage('en')" class="text-sm border px-2 py-1 rounded bg-neutral-200 dark:bg-neutral-700">EN</button>
+  </div>
+
+  <main class="min-h-screen flex flex-col items-center justify-center p-8">
+    <h1 class="text-4xl font-bold mb-8">
+      <span class="lang-es">Entradas del Blog</span>
+      <span class="lang-en hidden">Blog Posts</span>
+    </h1>
+
+    <ul class="space-y-8 max-w-xl w-full">
+      {posts.map(post => (
+        <li>
+          <a href={post.url} class="block">
+            <h2 class="text-2xl font-semibold underline hover:opacity-75">
+              <span class="lang-es">{post.frontmatter.title}</span>
+              <span class="lang-en hidden">{post.frontmatter.title_en ?? post.frontmatter.title}</span>
+            </h2>
+            <p class="mt-1 text-sm">
+              <span class="lang-es">{post.frontmatter.subtitle}</span>
+              <span class="lang-en hidden">{post.frontmatter.subtitle_en ?? post.frontmatter.subtitle}</span>
+            </p>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </main>
+
+  <script>
+    function setLanguage(lang) {
+      document.querySelectorAll('[class*=lang-]').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll(`.lang-${lang}`).forEach(el => el.classList.remove('hidden'));
+      document.documentElement.setAttribute('lang', lang);
+      localStorage.setItem('lang', lang);
+    }
+
+    const currentLang = localStorage.getItem('lang') || 'es';
+    setLanguage(currentLang);
+  </script>
+</Layout>
