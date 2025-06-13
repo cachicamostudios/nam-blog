@@ -16,17 +16,20 @@ const posts = await Astro.glob('../content/blog/*.md');
       <span class="lang-en hidden">Blog Posts</span>
     </h1>
 
-    <ul class="space-y-8 max-w-xl w-full">
+    <ul class="space-y-12 max-w-2xl w-full">
       {posts.map(post => (
-        <li>
+        <li class="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow hover:shadow-lg transition">
           <a href={post.url} class="block">
-            <h2 class="text-2xl font-semibold underline hover:opacity-75">
+            <h2 class="text-2xl font-bold underline underline-offset-4 hover:opacity-80 mb-2">
               <span class="lang-es">{post.frontmatter.title}</span>
               <span class="lang-en hidden">{post.frontmatter.title_en ?? post.frontmatter.title}</span>
             </h2>
-            <p class="mt-1 text-sm">
+            <p class="text-base text-neutral-600 dark:text-neutral-300 mb-1">
               <span class="lang-es">{post.frontmatter.subtitle}</span>
               <span class="lang-en hidden">{post.frontmatter.subtitle_en ?? post.frontmatter.subtitle}</span>
+            </p>
+            <p class="text-sm text-neutral-400">
+              🗓️ {new Date(post.frontmatter.pubDate).toLocaleDateString('es-ES')} · ✍️ {post.frontmatter.author}
             </p>
           </a>
         </li>
