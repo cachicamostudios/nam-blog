@@ -1,19 +1,100 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
-const posts = await getCollection('blog');
+layout: ../layouts/BaseLayout.astro
+title: "¡Bienvenido a Ñam!"
 ---
 
-<Layout>
-  <main class="max-w-3xl mx-auto px-6 py-10">
-    <h1 class="text-4xl font-bold mb-8">Bienvenido a Ñam</h1>
-    <ul class="space-y-6">
-      {posts.map(post => (
-        <li class="border-b pb-4">
-          <a class="text-2xl font-semibold text-blue-600 hover:underline" href={`/blog/${post.slug}`}>{post.data.title}</a>
-          <p class="text-sm text-gray-600 mt-1">{post.data.description}</p>
-        </li>
-      ))}
-    </ul>
-  </main>
-</Layout>
+<header>
+  <div class="logo">
+    <img src="/logo.png" alt="Ñam logo" />
+  </div>
+  <div class="menu-button" aria-label="Menú">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</header>
+
+<div class="intro">¡Bienvenido a Ñam!</div>
+
+<main>
+  <ul>
+    <li><a href="/casa-guedes">Casa Guedes y el sándwich brutal de Oporto</a></li>
+    <li><a href="/bienvenida-1">¡Bienvenida a Ñam!</a></li>
+    <li><a href="/bienvenida-2">¡Bienvenida a Ñam!</a></li>
+    <li><a href="/poder-del-grit">El poder del Grit</a></li>
+  </ul>
+</main>
+
+<style>
+  body {
+    font-family: system-ui, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #111;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #eee;
+  }
+
+  .logo img {
+    height: 64px;
+  }
+
+  .menu-button {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid #000;
+    cursor: pointer;
+  }
+
+  .menu-button span {
+    width: 20px;
+    height: 2px;
+    background-color: #000;
+    margin: 3px 0;
+  }
+
+  .intro {
+    font-size: 2rem;
+    margin: 2rem auto 1rem;
+    max-width: 720px;
+    padding: 0 1rem;
+  }
+
+  main {
+    max-width: 720px;
+    margin: 1rem auto 3rem;
+    padding: 0 1rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    border-bottom: 1px solid #ddd;
+    padding: 1rem 0;
+  }
+
+  a {
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+</style>
