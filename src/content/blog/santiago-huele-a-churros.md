@@ -14,7 +14,7 @@ El churro viajó a la península con los pastores castellanos como alternativa p
 
 El 23 de junio, cuando el sol se esconde tras el Monte Pedroso, los compostelanos encienden docenas de **cacharelas** (hogueras) para purificarse saltando sobre las llamas y recitar el mítico *Conxuro da Queimada* contra las meigas. Entre chispas y olor a eucalipto, las filas frente a los puestos de churros crecen como espigas. Comer algo dulce antes y después de brincar el fuego es casi un rito de protección adicional: el azúcar espanta los malos espíritus tanto como la lumbre.
 
-## ¿Dónde? Rincones churretosos (peca sin remordimientos)
+## Rincones churretosos (peca sin remordimientos)
 
 - **Churrería de San Pedro** (Rúa de San Pedro, 42)\
   Funde tradición y vistas a la Porta do Camiño. Su chocolate, denso como un sermón franciscano, se sirve en tazas de loza blanca que queman las manos y calientan el alma.
@@ -28,7 +28,7 @@ El 23 de junio, cuando el sol se esconde tras el Monte Pedroso, los compostelano
 - **Puesto de Doña Aurelia** (itinerante)\
   Sin dirección fija; sigue la música de las gaitas y encontrarás su carrito rojo. Doña Aurelia fríe los churros en aceite de oliva y los espolvorea con azúcar de vainilla.
 
-## ¿Cómo? Receta casera para valientes… o impacientes
+## Receta casera para valientes… o impacientes
 
 *Rinde 4 porciones generosas*
 
@@ -56,7 +56,9 @@ El 23 de junio, cuando el sol se esconde tras el Monte Pedroso, los compostelano
 5. Forma tiras de masa y fríe 2‑3 min por lado, hasta que doren. Escurre en papel absorbente, reboza en azúcar.
 6. Para el chocolate, disuelve la maicena en un chorrito de leche fría. Calienta el resto de la leche con el chocolate troceado; añade la mezcla de maicena y el azúcar. Remueve a fuego medio hasta que espese.
 
+
 **Tip Ñam!**: Si eres de los que saltan la hoguera tres veces, añade una pizca de canela al azúcar; da suerte y un perfume irresistible.
+
 
 ## En definitiva...
 
