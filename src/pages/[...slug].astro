@@ -9,7 +9,7 @@ export async function getStaticPaths() {
   }));
 }
 
-const { post } = Astro.props;
+const { post }   = Astro.props;
 const { Content } = await post.render();
 ---
 
@@ -18,29 +18,57 @@ const { Content } = await post.render();
     <meta charset="UTF-8" />
     <title>{post.data.title} — Ñam</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={post.data.description} />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content={post.data.title} />
-    <meta property="og:description" content={post.data.description} />
+
+    <!-- tipografía y estilos base, si ya los tienes déjalos tal cual -->
     <style>
-      /* podría ir en un .css global */
-      body { font-family: system-ui, sans-serif; background:#fdfaf4; color:#111;
-             max-width:720px; margin:0 auto; padding:2rem 1.5rem; line-height:1.6; }
-      h1   { font-size:2.4rem; margin-bottom:.5rem; }
+      body {
+        font-family: system-ui, sans-serif;
+        background:#fdfaf4; color:#111;
+        max-width:720px; margin:0 auto;
+        padding:2rem 1.5rem; line-height:1.6;
+      }
+      h1   { font-family:'Playfair Display',serif; font-size:2.4rem; margin:0 0 .5rem; }
       p    { font-size:1.2rem; color:#666; }
-      .content { margin-top:1rem; }
+
+      /* -------- Botón “Volver al inicio” -------- */
+      .back-home {
+        display:inline-block;
+        margin:1rem 0;
+        padding:.5rem 1rem;
+        border:2px solid #000;
+        border-radius:8px;
+        font-size:1rem;
+        text-decoration:none;
+        color:#000;
+        transition:background .2s,color .2s;
+      }
+      .back-home:hover {
+        background:#000;
+        color:#fff;
+      }
+      /* Opcional: centra el botón */
+      .center { text-align:center; }
     </style>
   </head>
 
   <body>
+    <!-- Botón arriba -->
+    <div class="center">
+      <a href="/" class="back-home">← Volver al inicio</a>
+    </div>
+
     <main>
-      <article>
-        <h1>{post.data.title}</h1>
-        <p><em>{post.data.pubDate.toLocaleDateString('es-ES')}</em></p>
-        <div class="content">
-          <Content />
-        </div>
-      </article>
+      <h1>{post.data.title}</h1>
+      <p><em>{post.data.pubDate.toLocaleDateString('es-ES')}</em></p>
+
+      <div class="content">
+        <Content />
+      </div>
+
+      <!-- Botón abajo (mantén o quita según prefieras) -->
+      <div class="center">
+        <a href="/" class="back-home">← Volver al inicio</a>
+      </div>
     </main>
   </body>
 </html>
