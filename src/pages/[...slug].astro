@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, getEntryBySlug } from 'astro:content';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -16,8 +16,28 @@ const { post } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <title>{post.data.title} — Ñam</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        background-color: #fdfaf4;
+        color: #111;
+        max-width: 720px;
+        margin: 2rem auto;
+        padding: 1.5rem;
+        font-size: 18px;
+        line-height: 1.6;
+      }
+      h1 {
+        font-size: 2.4rem;
+        margin-bottom: 0.5rem;
+      }
+      p {
+        font-size: 1.2rem;
+      }
+    </style>
   </head>
-  <body style="max-width: 720px; margin: 2rem auto; padding: 1rem; font-family: system-ui, sans-serif;">
+  <body>
     <h1>{post.data.title}</h1>
     <p><em>{post.data.pubDate}</em></p>
     <div>
