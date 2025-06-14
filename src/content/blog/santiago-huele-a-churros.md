@@ -5,7 +5,6 @@ pubDate: 2025-06-14
 description: "Una historia azucarada entre tradición y chocolate en las calles de Santiago durante la víspera de San Juan."
 ---
 
-# Santiago Huele a Churros con Chocolate: Una Dulce Historia de San Juan
 
 Hay un instante, apenas perceptible, en el que la bruma matinal de Santiago de Compostela se quita el impermeable de lluvia y se viste con un perfume dulce y tibio: el olor a churros recién hechos y a chocolate cremoso y espeso. Esa señal olfativa anuncia que el solsticio se acerca y que la ciudad está a punto de prender hogueras, entonar conxuros y dejarse conquistar por la gula en la noche más corta del año, la de **San Juan**.
 
