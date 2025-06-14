@@ -1,0 +1,22 @@
+---
+import { getCollection } from 'astro:content';
+const posts = await getCollection('blog');
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Archivo de Ñam</title>
+  </head>
+  <body>
+    <h1>Archivo de publicaciones</h1>
+    <ul>
+      {posts.map((post) => (
+        <li>
+          <a href={`/blog/${post.slug}`}>{post.data.title}</a> — 
+          <small>{post.data.pubDate.toLocaleDateString()}</small>
+        </li>
+      ))}
+    </ul>
+  </body>
+</html>
