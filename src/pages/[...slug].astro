@@ -1,56 +1,28 @@
 ---
-import { getEntryBySlug } from 'astro:content';
-const { slug } = Astro.params;
-const post = await getEntryBySlug('blog', slug);
+import { getCollection, getEntryBySlug } from 'astro:content';
+import { Markdown } from 'astro/components'; // Solo si estás usando Astro 3+
 
-if (!post) {
-  throw new Error(`No se encontró el post con el slug: ${slug}`);
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
 }
+
+const { post } = Astro.props;
 ---
 
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{post.data.title}</title>
-    <style>
-      body {
-        font-family: system-ui, sans-serif;
-        margin: 0;
-        padding: 2rem 1.5rem;
-        background-color: #fdfaf4;
-        color: #111;
-        font-size: 18px;
-        line-height: 1.6;
-        max-width: 720px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      h1 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-      }
-
-      p {
-        margin-bottom: 1rem;
-      }
-
-      a {
-        color: #1a73e8;
-        text-decoration: none;
-      }
-
-      a:hover {
-        text-decoration: underline;
-      }
-    </style>
+    <title>{post.data.title} — Ñam</title>
   </head>
   <body>
-    <h1>{post.data.title}</h1>
-    {post.data.description && <p><strong>{post.data.description}</strong></p>}
-    <article class="post">
-      {post.body}
+    <article>
+      <h1>{post.data.title}</h1>
+      <p>{post.data.pubDate}</p>
+      <Markdown content={post.body} />
     </article>
   </body>
 </html>
