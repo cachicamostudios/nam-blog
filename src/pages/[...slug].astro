@@ -34,13 +34,17 @@ const { post } = Astro.props;
       }
       p {
         font-size: 1.2rem;
+        color: #666;
+      }
+      .content {
+        margin-top: 1rem;
       }
     </style>
   </head>
   <body>
     <h1>{post.data.title}</h1>
-    <p><em>{post.data.pubDate}</em></p>
-    <div>
+    <p><em>{new Date(post.data.pubDate).toLocaleDateString('es-ES')}</em></p>
+    <div class="content">
       {@html post.body}
     </div>
   </body>
