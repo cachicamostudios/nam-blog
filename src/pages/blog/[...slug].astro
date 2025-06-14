@@ -1,0 +1,46 @@
+---
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props:  { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{post.data.title} — Ñam</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={post.data.description} />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content={post.data.title} />
+    <meta property="og:description" content={post.data.description} />
+    <style>
+      /* podría ir en un .css global */
+      body { font-family: system-ui, sans-serif; background:#fdfaf4; color:#111;
+             max-width:720px; margin:0 auto; padding:2rem 1.5rem; line-height:1.6; }
+      h1   { font-size:2.4rem; margin-bottom:.5rem; }
+      p    { font-size:1.2rem; color:#666; }
+      .content { margin-top:1rem; }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <article>
+        <h1>{post.data.title}</h1>
+        <p><em>{post.data.pubDate.toLocaleDateString('es-ES')}</em></p>
+        <div class="content">
+          <Content />
+        </div>
+      </article>
+    </main>
+  </body>
+</html>
