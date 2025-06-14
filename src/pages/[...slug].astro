@@ -1,5 +1,5 @@
 ---
-import { getCollection, getEntryBySlug } from 'astro:content';
+import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -10,6 +10,7 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
+const { Content } = await post.render();
 ---
 
 <html lang="es">
@@ -45,7 +46,7 @@ const { post } = Astro.props;
     <h1>{post.data.title}</h1>
     <p><em>{new Date(post.data.pubDate).toLocaleDateString('es-ES')}</em></p>
     <div class="content">
-      {@html post.body}
+      <Content />
     </div>
   </body>
 </html>
