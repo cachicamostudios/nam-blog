@@ -1,6 +1,5 @@
 ---
-import { getCollection, getEntryBySlug } from 'astro:content';
-import { Markdown } from 'astro/components'; // Solo si estás usando Astro 3+
+import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -19,10 +18,10 @@ const { post } = Astro.props;
     <title>{post.data.title} — Ñam</title>
   </head>
   <body>
-    <article>
+    <main style="max-width: 720px; margin: 2rem auto; padding: 1rem;">
       <h1>{post.data.title}</h1>
-      <p>{post.data.pubDate}</p>
-      <Markdown content={post.body} />
-    </article>
+      <p><em>{post.data.pubDate}</em></p>
+      <div>{@html post.body}</div>
+    </main>
   </body>
 </html>
