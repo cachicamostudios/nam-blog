@@ -1,5 +1,7 @@
 ---
-title: "Archivo de Ñam"
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
 ---
 
 <html lang="es">
@@ -145,9 +147,13 @@ title: "Archivo de Ñam"
     <main>
       <h1>Archivo de publicaciones</h1>
       <ul>
-        <li><a href="/blog/casa-guedes">Casa Guedes y el sándwich brutal de Oporto</a></li>
-        <li><a href="/blog/bienvenida">¡Bienvenida a Ñam!</a></li>
-        <li><a href="/blog/grit">El poder del Grit</a></li>
+        {posts
+          .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+          .map((post) => (
+            <li>
+              <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+            </li>
+          ))}
       </ul>
     </main>
 
