@@ -1,7 +1,5 @@
 ---
 import { getEntryBySlug } from 'astro:content';
-import { Markdown } from 'astro/components';
-
 const { slug } = Astro.params;
 const post = await getEntryBySlug('blog', slug);
 
@@ -51,6 +49,8 @@ if (!post) {
   <body>
     <h1>{post.data.title}</h1>
     {post.data.description && <p><strong>{post.data.description}</strong></p>}
-    <Markdown content={post.body} />
+    <article class="post">
+      {post.body}
+    </article>
   </body>
 </html>
