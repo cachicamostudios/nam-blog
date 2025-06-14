@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 
-const posts = await getCollection('blog');
+const posts  = await getCollection('blog');
 const sorted = posts.sort((a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate));
 const latest = sorted[0];
 ---
@@ -11,6 +11,10 @@ const latest = sorted[0];
     <title>Ñam — Blog gastronómico</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ① Tipografía elegante -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+
     <style>
       body {
         font-family: system-ui, sans-serif;
@@ -21,6 +25,8 @@ const latest = sorted[0];
         font-size: 18px;
         line-height: 1.6;
       }
+
+      /* --------------- HEADER --------------- */
       header {
         display: flex;
         justify-content: space-between;
@@ -28,78 +34,54 @@ const latest = sorted[0];
         padding: 1.5rem 1.5rem 1.5rem 0.9rem;
         border-bottom: 1px solid #eee;
       }
-      .logo {
-        display: flex;
-        align-items: center;
-        margin-left: -2rem;
-      }
-      .logo img {
-        height: 120px;
-      }
+      .logo { display: flex; align-items: center; margin-left: -2rem; }
+      .logo img { height: 120px; }
+
       .menu-button {
-        display: inline-flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 64px;
-        height: 64px;
-        border-radius: 10px;
-        border: 2px solid #000;
-        cursor: pointer;
+        display: inline-flex; flex-direction: column; justify-content: center; align-items: center;
+        width: 64px; height: 64px; border-radius: 10px; border: 2px solid #000; cursor: pointer;
       }
       .menu-button span {
-        width: 32px;
-        height: 5px;
-        background-color: #000;
-        margin: 5px 0;
-        border-radius: 2px;
+        width: 32px; height: 5px; background-color: #000;
+        margin: 5px 0; border-radius: 2px;
       }
       .menu {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100px;
-        right: 1rem;
-        background-color: #fdfaf4;
-        border: 2px solid #000;
-        padding: 1rem;
-        border-radius: 10px;
+        display: none; flex-direction: column;
+        position: absolute; top: 100px; right: 1rem;
+        background-color: #fdfaf4; border: 2px solid #000;
+        padding: 1rem; border-radius: 10px;
       }
-      input[type="checkbox"] {
-        display: none;
-      }
-      input[type="checkbox"]:checked + .menu {
-        display: flex;
-      }
+      input[type="checkbox"] { display: none; }
+      input[type="checkbox"]:checked + .menu { display: flex; }
+
       .nav-link {
-        margin-bottom: 0.5rem;
-        font-size: 1.2rem;
-        text-decoration: none;
-        color: #000;
+        margin-bottom: .5rem; font-size: 1.2rem;
+        text-decoration: none; color: #000;
       }
-      .nav-link:hover {
-        text-decoration: underline;
-      }
-      main {
-        padding: 2rem 1.5rem;
-        max-width: 720px;
-        margin: 0 auto;
-      }
-      h1 {
+      .nav-link:hover { text-decoration: underline; }
+
+      /* --------------- MAIN --------------- */
+      main { padding: 2rem 1.5rem; max-width: 720px; margin: 0 auto; }
+
+      /* Título elegante y negro */
+      h1, h1 a {
+        font-family: 'Playfair Display', serif;
         font-size: 2.4rem;
-        margin-bottom: 0.5rem;
-      }
-      p {
-        font-size: 1.2rem;
-        margin-top: 0;
-      }
-      a {
-        color: #1a73e8;
+        margin-bottom: .5rem;
+        font-weight: 700;
+        color: #111;          /* negro suave */
         text-decoration: none;
       }
-      a:hover {
-        text-decoration: underline;
+      h1 a:hover {
+        color: #111;          /* sin volver al azul */
+        text-decoration: none;
       }
+
+      p { font-size: 1.2rem; margin-top: 0; }
+
+      /* Enlaces generales (ya no azul Google) */
+      a { color: #333; text-decoration: none; }
+      a:hover { color: #000; text-decoration: underline; }
     </style>
   </head>
 
@@ -110,9 +92,7 @@ const latest = sorted[0];
       </div>
 
       <label for="menu-toggle" class="menu-button">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </label>
       <input type="checkbox" id="menu-toggle" />
       <nav class="menu">
