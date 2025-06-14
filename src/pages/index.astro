@@ -2,89 +2,131 @@
 title: "¡Bienvenido a Ñam!"
 ---
 
-<header>
-  <div class="logo">
-    <img src="/nam-logo.png" alt="Logo de Ñam" />
-  </div>
-  <div class="menu-button" aria-label="Menú">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</header>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>¡Bienvenido a Ñam!</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #fff;
+        color: #111;
+        font-size: 18px;
+        line-height: 1.6;
+      }
 
-<div class="intro">¡Bienvenido a Ñam!</div>
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 1rem;
+        border-bottom: 1px solid #eee;
+      }
 
+      .logo img {
+        height: 160px;
+        max-width: 100%;
+      }
 
-<style>
-  body {
-    font-family: system-ui, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #fff;
-    color: #111;
-  }
+      .menu-button {
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 60px;
+        height: 60px;
+        border-radius: 10px;
+        border: 2px solid #000;
+        cursor: pointer;
+      }
 
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    border-bottom: 1px solid #eee;
-  }
+      .menu-button span {
+        width: 30px;
+        height: 4px;
+        background-color: #000;
+        margin: 5px 0;
+        border-radius: 2px;
+      }
 
-  .logo img {
-  height: 128px;
-}
+      .intro {
+        font-size: 2.7rem;
+        margin: 2rem 1.5rem;
+        text-align: left;
+      }
 
-  .menu-button {
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-    border: 1px solid #000;
-    cursor: pointer;
-  }
+      main {
+        max-width: 720px;
+        margin: 1rem auto 3rem;
+        padding: 0 1.5rem;
+      }
 
-  .menu-button span {
-    width: 20px;
-    height: 2px;
-    background-color: #000;
-    margin: 3px 0;
-  }
+      ul {
+        list-style: none;
+        padding: 0;
+      }
 
-  .intro {
-  font-size: 2.5rem; /* más grande */
-  margin: 1rem 2rem; /* menos margen arriba */
-  text-align: left;  /* justificado a la izquierda */
-}
+      li {
+        border-bottom: 1px solid #ddd;
+        padding: 1.2rem 0;
+      }
 
-  main {
-    max-width: 720px;
-    margin: 1rem auto 3rem;
-    padding: 0 1rem;
-  }
+      a {
+        color: #1a73e8;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.4rem;
+      }
 
-  ul {
-    list-style: none;
-    padding: 0;
-  }
+      a:hover {
+        text-decoration: underline;
+      }
 
-  li {
-    border-bottom: 1px solid #ddd;
-    padding: 1rem 0;
-  }
+      @media (max-width: 768px) {
+        header {
+          padding: 1.5rem 1rem;
+        }
 
-  a {
-    color: #1a73e8;
-    text-decoration: none;
-    font-weight: 500;
-  }
+        .logo img {
+          height: 180px;
+        }
 
-  a:hover {
-    text-decoration: underline;
-  }
-</style>
+        .menu-button {
+          width: 64px;
+          height: 64px;
+        }
+
+        .menu-button span {
+          width: 32px;
+          height: 5px;
+        }
+
+        .intro {
+          font-size: 3rem;
+          margin-top: 2rem;
+        }
+
+        a {
+          font-size: 1.6rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">
+        <img src="/nam-logo.png" alt="Logo de Ñam" />
+      </div>
+      <div class="menu-button" aria-label="Menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </header>
+
+    <div class="intro">¡Bienvenido a Ñam!</div>
+
+   
