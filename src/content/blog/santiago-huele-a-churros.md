@@ -1,6 +1,7 @@
 ---
-title: "Santiago huele a churros con chocolate: una dulce historia de San Juan"
-author: "Susana Gomes"
+layout: ../../Layouts/Post.astro   
+title: Santiago huele a churros con chocolate
+author: Susana Gomes
 pubDate: 2025-06-14
 description: "Una historia azucarada entre tradición y chocolate en las calles de Santiago durante la víspera de San Juan."
 ---
