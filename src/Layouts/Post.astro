@@ -1,0 +1,18 @@
+---
+const { frontmatter, children } = Astro.props;
+---
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{frontmatter.title}</title>
+    <link rel="stylesheet" href="/styles/global.css" />
+  </head>
+  <body>
+    <a href="/blog" class="back-btn">← Volver</a>
+
+    <article>
+      <h1>{frontmatter.title}</h1>
+      {children}
+    </article>
+  </body>
+</html>
