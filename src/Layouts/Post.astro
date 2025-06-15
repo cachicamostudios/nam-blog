@@ -1,19 +1,35 @@
 ---
-// recibes las props generadas por Astro (markdown front-matter o page props)
 const { frontmatter, children } = Astro.props;
 ---
+
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <title>{frontmatter?.title ?? 'Post'}</title>
-    <link rel="stylesheet" href="/styles/global.css" />
-  </head>
+  <head>…</head>
   <body>
-    <!-- Botón “Volver” fijo -->
     <a href="/blog" class="back-btn">← Volver</a>
 
     <article>
-      {frontmatter?.title && <h1>{frontmatter.title}</h1>}
+      {frontmatter.title && <h1>{frontmatter.title}</h1>}
+
+      {/* ---------- Autor & fecha ---------- */}
+      {frontmatter.author && (
+        <p class="post-meta">
+          ✍️ {frontmatter.author}
+          {frontmatter.pubDate && (
+            <>
+              {' · '}
+              <time datetime={frontmatter.pubDate}>
+                {new Date(frontmatter.pubDate).toLocaleDateString('es-ES', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                })}
+              </time>
+            </>
+          )}
+        </p>
+      )}
+      {/* ------------------------------------ */}
+
       {children}
     </article>
   </body>
