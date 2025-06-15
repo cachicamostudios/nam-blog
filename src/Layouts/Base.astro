@@ -1,0 +1,38 @@
+<!-- src/layouts/Base.astro -->
+---
+const { title = 'Ñam.com', children } = Astro.props;
+---
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{title}</title>
+
+    <!-- Tipografía, CSS global y modo oscuro -->
+    <link rel="stylesheet" href="/styles/global.css" />
+  </head>
+  <body class="min-h-screen flex flex-col bg-white text-black dark:bg-black dark:text-white">
+    <!-- ---------- Header / Navbar igual al de la landing ---------- -->
+    <header class="flex items-center justify-between p-4 border-b border-current">
+      <a href="/" class="font-bold text-xl">Ñam.com</a>
+
+      <!-- Menú hamburguesa que ya tenías -->
+      <button id="hamburger" aria-label="Menú" class="md:hidden text-2xl">☰</button>
+      <nav class="hidden md:flex gap-6">
+        <a href="/"    class="navlink">Inicio</a>
+        <a href="/archivo" class="navlink">Archivo</a>
+        <a href="/acerca"  class="navlink">Acerca</a>
+      </nav>
+    </header>
+
+    <!-- ---------- Contenido que varía por página ---------- -->
+    <main class="flex-1 p-6 md:p-10 lg:p-16 max-w-3xl mx-auto">
+      {children}
+    </main>
+
+    <!-- ---------- Footer (opcional) ---------- -->
+    <footer class="p-4 text-center opacity-60 border-t border-current">
+      © {new Date().getFullYear()} Ñam.com – CACHICAMO STUDIOS LLC
+    </footer>
+  </body>
+</html>
