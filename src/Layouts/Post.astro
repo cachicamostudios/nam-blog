@@ -1,24 +1,47 @@
 ---
+// Post.astro – layout global para todos los posts
+// Recibe front-matter y children desde los archivos Markdown/MDX
 const { frontmatter, children } = Astro.props;
+const { title, author, pubDate } = frontmatter ?? {};
 ---
-
 <html lang="es">
-  <head>…</head>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <!-- Título dinámico -->
+    <title>{title ?? 'Post'}</title>
+    {title && <meta property="og:title" content={title} />}
+
+    <!-- Google Search Console -->
+    <meta name="google-site-verification" content="kHoxoOFum4WewT1IfQ8bbbngCy7xK4yAtAtH9nOr-oo" />
+
+    <!-- Hoja de estilos global -->
+    <link rel="stylesheet" href="/styles/global.css" />
+
+    <!-- GoatCounter -->
+    <script
+      async
+      data-goatcounter="https://nam.goatcounter.com/count"
+      src="//gc.zgo.at/count.js">
+    </script>
+  </head>
+
   <body>
+    <!-- Botón volver -->
     <a href="/blog" class="back-btn">← Volver</a>
 
     <article>
-      {frontmatter.title && <h1>{frontmatter.title}</h1>}
+      {title && <h1>{title}</h1>}
 
-      {/* ---------- Autor & fecha ---------- */}
-      {frontmatter.author && (
+      {author && (
         <p class="post-meta">
-          ✍️ {frontmatter.author}
-          {frontmatter.pubDate && (
+          ✍️ {author}
+          {pubDate && (
             <>
               {' · '}
-              <time datetime={frontmatter.pubDate}>
-                {new Date(frontmatter.pubDate).toLocaleDateString('es-ES', {
+              <time datetime={pubDate}>
+                {new Date(pubDate).toLocaleDateString('es-ES', {
                   year: 'numeric',
                   month: 'long',
                   day: 'numeric'
@@ -28,9 +51,10 @@ const { frontmatter, children } = Astro.props;
           )}
         </p>
       )}
-      {/* ------------------------------------ */}
 
       {children}
     </article>
   </body>
 </html>
+
+
